@@ -1,0 +1,36 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+- script: |
+    docker run -d \
+    --net host \
+    --name ipfs \
+    ipfs/go-ipfs:latest daemon --enable-pubsub-experiment
+  displayName: 'Run ipfs daemon'
+
+- script: |
+    docker run -d \
+    --net host \
+    --name orbit-db-http-api \
+    -e IPFS_HOST='localhost' \
+    -e LOG='DEBUG' \
+    phillmac/orbit-db-http-api-dev:debug src/cli.js api
+  displayName: 'Run orbit-db-http-api server'
+
+- script: |
+    docker run \
+    --net host \
+    -e ORBIT_DB_HTTP_API_URL='localhost' \
+    phillmac/py-orbit-db-http-client-dev python /py-orbit-db-http-client/tests/test.py \
+    && docker stop $(docker ps -a -q)
+    
+  displayName: 'Run orbit-db-http-client tests'
