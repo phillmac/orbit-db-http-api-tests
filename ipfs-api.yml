@@ -23,7 +23,7 @@ steps:
     --name orbit-db-http-api \
     -e IPFS_HOST='localhost' \
     -e LOG='DEBUG' \
-    -e FORCE_HTTP=true
+    -e FORCE_HTTP=true \
     phillmac/orbit-db-http-api-dev:debug src/cli.js api
   displayName: 'Run orbit-db-http-api server'
 
