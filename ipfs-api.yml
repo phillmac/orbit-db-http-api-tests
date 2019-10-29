@@ -28,10 +28,11 @@ steps:
   displayName: 'Run orbit-db-http-api server'
 
 - script: |
-    docker run \
+    docker run --rm \
     --net host \
     -e ORBIT_DB_HTTP_API_URL='http://localhost:3000' \
-    phillmac/py-orbit-db-http-client-dev python /py-orbit-db-http-client/tests/test.py \
-    && docker stop $(docker ps -a -q)
+    phillmac/py-orbit-db-http-client-dev python /py-orbit-db-http-client/tests/test.py
+    docker stop ipfs orbit-db-http-api
+    docker logs orbit-db-http-api
     
   displayName: 'Run orbit-db-http-client tests'
