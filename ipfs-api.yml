@@ -24,7 +24,7 @@ steps:
     -e IPFS_HOST='localhost' \
     -e LOG='DEBUG' \
     -e FORCE_HTTP1=true \
-    phillmac/orbit-db-http-api-dev:debug src/cli.js api
+    phillmac/orbit-db-http-api-dev:$(API_Image_Branch) src/cli.js api
   displayName: 'Run orbit-db-http-api server'
 
 - script: |
