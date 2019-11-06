@@ -38,4 +38,4 @@ steps:
     docker logs orbit-db-http-api
     exit $tests_exit_code
     
-  displayName: 'Run orbit-db-http-client tests'
+  displayName: 'Run orbit-db-http-client tests with local ipfs'
