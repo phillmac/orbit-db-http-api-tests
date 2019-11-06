@@ -14,6 +14,7 @@ steps:
     docker run -d \
     --net host \
     --name orbit-db-http-api \
+    -e IPFS_DHT=true \
     -e LOG='DEBUG' \
     -e FORCE_HTTP1=true \
     phillmac/orbit-db-http-api-dev:$(API_Image_Branch) src/cli.js local --debug
