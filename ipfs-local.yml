@@ -25,7 +25,7 @@ steps:
     docker run --rm \
     --net host \
     -e ORBIT_DB_HTTP_API_URL='http://localhost:3000' \
-    -e ORBIT_DB_HTTP_API_TIMEOUT=300
+    -e ORBIT_DB_HTTP_API_TIMEOUT=300 \
     phillmac/py-orbit-db-http-client-dev python /py-orbit-db-http-client/tests/test.py
     tests_exit_code=$?
     docker stop orbit-db-http-api
