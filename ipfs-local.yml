@@ -13,13 +13,6 @@ steps:
 - script: |
     docker run -d \
     --net host \
-    --name ipfs \
-    ipfs/go-ipfs:latest daemon --enable-pubsub-experiment
-  displayName: 'Run ipfs daemon'
-
-- script: |
-    docker run -d \
-    --net host \
     --name orbit-db-http-api \
     -e IPFS_HOST='localhost' \
     -e LOG='DEBUG' \
