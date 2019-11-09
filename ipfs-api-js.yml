@@ -14,7 +14,7 @@ steps:
     docker run -d \
     --net host \
     --name ipfs \
-    ipfs/js-ipfs:latest daemon --enable-pubsub-experiment
+    ipfs/js-ipfs:latest
   displayName: 'Run ipfs daemon'
 
 - script: |
