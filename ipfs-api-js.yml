@@ -23,6 +23,7 @@ steps:
     --net host \
     --name orbit-db-http-api \
     -e IPFS_HOST='localhost' \
+    -e IPFS_PORT=5002 \
     -e LOG='DEBUG' \
     -e FORCE_HTTP1=true \
     phillmac/orbit-db-http-api-dev:$(API_Image_Branch) src/cli.js api --debug
