@@ -37,7 +37,7 @@ steps:
     phillmac/py-orbit-db-http-client-dev python /py-orbit-db-http-client/tests/test.py
     tests_exit_code=$?
     docker stop ipfs orbit-db-http-api
-    docker logs orbit-db-http-api
+    docker logs orbit-db-http-api ipfs
     exit $tests_exit_code
     
   displayName: 'Run orbit-db-http-client tests'
