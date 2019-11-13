@@ -14,7 +14,8 @@ steps:
     docker run -d \
     --net host \
     --name ipfs \
-    node:latest bash -c "mkdir ipfs && cd ipfs && git clone https://github.com/ipfs/js-ipfs.git . && nmp install . && /src/cli/bin.js init && /src/cli/bin.js daemon"
+    node:latest sleep infinity
+    docker exec ipfs  bash -c "mkdir ipfs && cd ipfs && git clone https://github.com/ipfs/js-ipfs.git . && nmp install . && /src/cli/bin.js init && /src/cli/bin.js daemon &"
   displayName: 'Run ipfs daemon'
 
 - script: |
