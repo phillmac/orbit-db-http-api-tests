@@ -27,6 +27,7 @@ steps:
     -e ORBIT_DB_HTTP_API_TIMEOUT=$(Orbit_DB_HTTP_API_Timeout) \
     phillmac/py-orbit-db-http-client-dev python /py-orbit-db-http-client/tests/test.py
     tests_exit_code=$?
+    docker exec orbit-db-http-api node --version
     docker stop orbit-db-http-api
     docker logs orbit-db-http-api
     exit $tests_exit_code
