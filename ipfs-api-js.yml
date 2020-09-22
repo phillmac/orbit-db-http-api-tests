@@ -20,9 +20,9 @@ steps:
       && cd ipfs \
       && git clone https://github.com/ipfs/js-ipfs.git . \
       && npm install . --only=prod \
-      && ./src/cli/bin.js init \
-      && ./src/cli/bin.js config --json libp2p.config.dht.enabled true \
-      && bash -c './src/cli/bin.js daemon &'"
+      && ./packages/ipfs/src/cli/bin.js init \
+      && ./packages/ipfs/src/cli/bin.js config --json libp2p.config.dht.enabled true \
+      && bash -c './packages/ipfs/src/cli/bin.js daemon &'"
   displayName: 'Run ipfs daemon'
 
 - script: |
