@@ -33,7 +33,7 @@ steps:
     -e IPFS_PORT=5002 \
     -e LOG='DEBUG' \
     -e FORCE_HTTP1=true \
-    phillmac/orbit-db-http-api-dev:$(API_Image_Branch) src/cli.js api --debug
+    $(API_Image_Name):$(API_Image_Branch) src/cli.js api --debug
   displayName: 'Run orbit-db-http-api server'
 
 - script: |
