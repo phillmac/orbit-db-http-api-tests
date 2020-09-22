@@ -18,7 +18,7 @@ steps:
     docker exec ipfs bash -c \
       "git clone https://github.com/ipfs/js-ipfs.git \
       && cd js-ipfs \
-      && npm install \
+      && npm install --unsafe-perm \
       && ./packages/ipfs/src/cli/bin.js init \
       && ./packages/ipfs/src/cli/bin.js config --json libp2p.config.dht.enabled true \
       && bash -c './packages/ipfs/src/cli/bin.js daemon &'"
