@@ -14,7 +14,7 @@ steps:
     docker run -d \
     --net host \
     --name ipfs \
-    ipfs/go-ipfs:latest daemon --enable-pubsub-experiment
+    ipfs/go-ipfs:$(Go_IPFS_Version) daemon --enable-pubsub-experiment
   displayName: 'Run ipfs daemon'
 
 - script: |
